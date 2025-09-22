@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>자기소개서 | 홍길동</title>
+    <meta name="description" content="홍길동의 자기소개서 웹페이지" />
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #7dd3fc; /* sky-300 */
+        --accent-2: #c7d2fe; /* indigo-200 */
+        --ring: rgba(125, 211, 252, 0.45);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: radial-gradient(1200px 800px at 80% -10%, rgba(125,211,252,.35), transparent 60%),
+                    radial-gradient(1000px 700px at -10% 0%, rgba(199,210,254,.32), transparent 60%),
+                    var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+      header {
+        position: sticky; top: 0; z-index: 10;
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        background: rgba(255, 255, 255, 0.45);
+        border-bottom: 1px solid rgba(255,255,255,.6);
+      }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .nav a { color: var(--muted); padding: 12px 8px; font-weight: 600; }
+      .nav a:hover { color: var(--text); text-shadow: 0 0 1px rgba(15,23,42,.08); }
+      .brand { display: flex; align-items: center; gap: 10px; }
+      .badge {
+        padding: 4px 10px; border: 1px solid rgba(15,23,42,.08);
+        border-radius: 999px; color: var(--muted); font-size: 12px; background: rgba(255,255,255,.6);
+        backdrop-filter: blur(8px) saturate(140%);
+      }
+      .hero { padding: 56px 0 28px; }
+      .title { font-size: 36px; line-height: 1.2; margin: 12px 0; }
+      .subtitle { color: var(--muted); max-width: 70ch; }
+      .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; margin-top: 28px; }
+      .card {
+        position: relative;
+        background: rgba(255,255,255,.55);
+        border: 1px solid rgba(255,255,255,.60);
+        border-radius: 16px; padding: 20px;
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, .08), inset 0 1px 0 rgba(255,255,255,.45);
+      }
+      .card::after {
+        content: "";
+        position: absolute; inset: 0; border-radius: 16px;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0));
+        mask: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,0));
+      }
+      h2 { font-size: 22px; margin: 6px 0 12px; }
+      section { scroll-margin-top: 90px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+      .chip { background: rgba(255,255,255,.55); color: var(--text); border: 1px solid rgba(15,23,42,.08); padding: 6px 10px; border-radius: 999px; font-size: 12px; backdrop-filter: blur(10px) saturate(140%); -webkit-backdrop-filter: blur(10px) saturate(140%); }
+      .chip.purple { color: var(--text); border-color: rgba(99,102,241,.25); box-shadow: inset 0 0 0 999px rgba(199,210,254,.45); }
+      .list { margin: 8px 0 0; padding-left: 18px; color: var(--text); }
+      .muted { color: var(--muted); }
+      footer { color: var(--muted); border-top: 1px solid rgba(148,163,184,.15); margin-top: 32px; padding: 24px 0; font-size: 14px; }
+      .cta {
+        display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;
+        background: rgba(255,255,255,.65);
+        color: var(--text); font-weight: 700; padding: 10px 14px; border-radius: 12px;
+        border: 1px solid rgba(15,23,42,.08);
+        backdrop-filter: blur(12px) saturate(160%);
+        -webkit-backdrop-filter: blur(12px) saturate(160%);
+        box-shadow: 0 8px 24px rgba(15,23,42,.08), inset 0 1px 0 rgba(255,255,255,.45);
+      }
+      .cta:hover { background: rgba(255,255,255,.75); }
+      .section-title { display: flex; align-items: center; gap: 10px; }
+      .section-title .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 8px rgba(125,211,252,.25), 0 0 24px rgba(199,210,254,.55); }
+      @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <strong>홍길동</strong>
+          <span class="badge">Product-minded Developer</span>
+        </div>
+        <nav>
+          <a href="#intro">소개</a>
+          <a href="#values">가치관</a>
+          <a href="#experience">경험</a>
+          <a href="#skills">역량</a>
+          <a href="#vision">목표</a>
+          <a href="#contact">연락처</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section id="intro" class="hero">
+        <div class="section-title"><span class="dot"></span><h1 class="title">문제를 집요하게 파고드는 개발자, 홍길동입니다.</h1></div>
+        <p class="subtitle">
+          사용자의 불편을 발견하면 개발자로서의 본능이 먼저 반응합니다. 저는 문제의 본질을 명확히 정의하고, 가장 단순하지만 확실하게
+          해결하는 것을 지향합니다. 기술은 수단일 뿐, 결과는 반드시 사용자 가치로 귀결되어야 한다고 믿습니다. 그래서 무엇을 개발했는지보다
+          왜 만들었고 어떤 영향을 만들었는지를 더 중요하게 봅니다. 데이터에 근거한 의사결정, 작은 실험의 빠른 반복, 팀의 투명한 협업을 통해
+          제품을 한 단계씩 개선하는 과정이 저를 가장 몰입시키는 순간입니다.
+        </p>
+        <a class="cta" href="#contact" aria-label="연락하기">함께 일해요</a>
+      </section>
+
+      <div class="grid">
+        <section id="values" class="card">
+          <h2>일하는 방식과 가치관</h2>
+          <p class="muted">무엇보다도 결과와 사용자 임팩트를 중시합니다.</p>
+          <ul class="list">
+            <li><strong>집요함</strong>: 문제를 모호함의 상태에 두지 않습니다. 데이터와 로그, 사용자의 목소리를 통해 원인을 끝까지 추적합니다.</li>
+            <li><strong>단순함</strong>: 해결책은 작고 명확해야 합니다. 핵심 가치에 집중하고 불필요한 복잡함을 제거합니다.</li>
+            <li><strong>빠른 실험</strong>: 가설을 세우고, 최소 기능으로 검증하며, 결과를 기준으로 다음 행동을 결정합니다.</li>
+            <li><strong>협업</strong>: 동료의 시간을 절약하는 문서화, 명확한 커뮤니케이션, 재사용 가능한 코드와 공정을 선호합니다.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Impact First</span>
+            <span class="chip purple">Small Bets</span>
+            <span class="chip">Clarity Over Cleverness</span>
+            <span class="chip purple">User-Centric</span>
+          </div>
+        </section>
+
+        <section id="experience" class="card">
+          <h2>주요 경험</h2>
+          <p>
+            스타트업에서 웹 제품의 기획부터 배포까지 엔드투엔드 경험을 쌓았습니다. 한정된 자원 속에서도 가장 큰 효과를 만드는 우선순위를
+            정하고, 측정 가능한 목표를 설정하여 팀과 공유했습니다. 트래픽 급증기에는 캐싱과 쿼리 최적화로 응답 속도를 40% 개선했고,
+            퍼널 분석을 통해 온보딩 흐름을 개편하여 전환율을 유의미하게 끌어올렸습니다. 실패한 실험에서도 배움을 정리해 다음 시도에
+            반영하는 루프를 조직 문화로 정착시키는 데 기여했습니다.
+          </p>
+          <p>
+            또한 디자이너와 함께 디자인 시스템을 정비해 일관된 UI를 확보했고, 공통 컴포넌트를 모듈화하여 개발 속도를 높였습니다. 테스트
+            코드와 가이드라인을 통해 배포 안정성을 끌어올리고 신입 온보딩 시간을 단축시켰습니다. 무엇보다도 사용자 인터뷰와 로그 분석을 통해
+            진짜 문제를 빠르게 포착하는 법을 체득했습니다.
+          </p>
+        </section>
+      </div>
+
+      <section id="skills" class="card" style="margin-top:24px;">
+        <h2>핵심 역량</h2>
+        <ul class="list">
+          <li><strong>문제정의</strong>: 현상의 이면에 있는 원인을 구조화하고, 측정 가능한 성공 기준을 설정합니다.</li>
+          <li><strong>프론트엔드</strong>: 접근성과 성능을 고려한 인터랙션 설계, 상태 관리, API 연동을 안정적으로 구현합니다.</li>
+          <li><strong>백엔드</strong>: 간결한 API 설계, 데이터 모델링, 캐시·쿼리 최적화로 신뢰성 있는 서비스를 만듭니다.</li>
+          <li><strong>데이터 기반</strong>: 이벤트 설계, 대시보드 구축, A/B 테스트로 가설을 검증하고 다음 행동을 정합니다.</li>
+          <li><strong>협업</strong>: 문서화와 코드리뷰를 통해 팀의 지식이 적체되지 않도록 돕습니다.</li>
+        </ul>
+        <div class="chips" aria-label="기술 키워드">
+          <span class="chip">TypeScript</span>
+          <span class="chip">React</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">SQL</span>
+          <span class="chip purple">Design System</span>
+          <span class="chip purple">A/B Testing</span>
+        </div>
+      </section>
+
+      <section id="vision" class="card" style="margin-top:24px;">
+        <h2>앞으로의 목표</h2>
+        <p>
+          사용자가 체감하는 가치를 극대화하는 제품 팀에서 일하고 싶습니다. 제품의 문제 영역을 빠르게 이해하고, 리스크를 분해하여 작은 단계로
+          진행하며, 학습된 내용을 팀과 공유해 더 나은 결정을 빠르게 내리는 조직을 선호합니다. 장기적으로는 제품의 방향을 기술적으로
+          뒷받침하면서도, 데이터와 사용자 맥락을 연결하는 브리지 역할을 하고자 합니다. 성숙한 코드 베이스와 건강한 실험 문화 위에서
+          개인이 성장하고 팀의 성공으로 이어지는 경험을 만들겠습니다.
+        </p>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:24px;">
+        <h2>연락처</h2>
+        <p class="muted">함께 문제를 풀어갈 팀을 찾고 있습니다. 편하게 연락 주세요.</p>
+        <ul class="list">
+          <li>이메일: gildong@example.com</li>
+          <li>GitHub: github.com/gildong</li>
+          <li>블로그: blog.example.com</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        © <span id="year"></span> Hong Gil-dong. All rights reserved.
+      </div>
+    </footer>
+    <script>
+      const y = document.getElementById('year');
+      if (y) y.textContent = String(new Date().getFullYear());
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const href = a.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    </script>
+  </body>
+  </html>
+
+
